@@ -1,0 +1,11 @@
+flask
+flask_restful
+Werkzeug
+
+jinja2
+opencv-python
+tensorflow
+numpy
+scikit-image
+scikit-learn
+imutils
