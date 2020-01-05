@@ -34,7 +34,7 @@ def analyze_video():
 
         workflow, images, labels = analyzer_service.process(video_path)
 
-        resp = jsonify({'workflow': workflow, 'images': images, 'labels:': labels})
+        resp = jsonify({'workflow': workflow, 'images': images, 'labels': labels})
         resp.status_code = 200
         return resp
     else:
