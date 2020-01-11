@@ -2,6 +2,7 @@ package at.fh.se.master.clc.rest;
 
 import at.fh.se.master.clc.business.SCAPersistService;
 import at.fh.se.master.clc.domain.SCAModel;
+import org.eclipse.microprofile.opentracing.Traced;
 import org.slf4j.Logger;
 
 import javax.inject.Inject;
