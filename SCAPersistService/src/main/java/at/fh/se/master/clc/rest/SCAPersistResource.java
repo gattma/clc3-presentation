@@ -1,5 +1,6 @@
 package at.fh.se.master.clc.rest;
 
+import at.fh.se.master.clc.business.SCAPersistService;
 import at.fh.se.master.clc.domain.SCAModel;
 import org.slf4j.Logger;
 
@@ -17,6 +18,9 @@ public class SCAPersistResource {
     @Inject
     private Logger LOG;
 
+    @Inject
+    private SCAPersistService service;
+
     @GET
     @Path("/health")
     @Produces(MediaType.TEXT_PLAIN)
@@ -29,16 +33,15 @@ public class SCAPersistResource {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response persist(SCAModel entity) {
         LOG.debug("SCAPersistResource.persist({})", entity);
-        entity.persist();
+        service.persist(entity);
         return Response.ok().build();
     }
 
     @GET
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getAll(@PathParam("id") String id) {
-        LOG.debug("SCAPersistResource.getAll() with id {}", id);
-        List<SCAModel> res = SCAModel.find("userId", id).list();
-        return Response.ok(res).build();
+    public Response findAllForUser(@PathParam("id") String id) {
+        LOG.debug("SCAPersistResource.getAll({})", id);
+        return Response.ok(service.findAllForUser(id)).build();
     }
 }
