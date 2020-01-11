@@ -10,29 +10,42 @@ import java.util.List;
 @JsonAutoDetect
 public class SCAModel extends PanacheMongoEntity implements Serializable {
 
-    private String workflowXML;
+    private String workflow;
     // private String[] labels;
     private List<String> labels;
     // private float[][][] images;
-    private List<List<List<Float>>> images;
+    private List<List<List<List<Float>>>> images;
+
+
+    private String userId;
 
     public SCAModel() {
         super();
     }
 
-    public SCAModel(String workflowXML, List<String> labels, List<List<List<Float>>> images) {
-        this.workflowXML = workflowXML;
+    public SCAModel(String workflowXML, List<String> labels, List<List<List<List<Float>>>> images, String userId) {
+        this.workflow = workflowXML;
         this.labels = labels;
         this.images = images;
+        this.userId = userId;
     }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
 
     @JsonProperty
-    public String getWorkflowXML() {
-        return workflowXML;
+    public String getWorkflow() {
+        return workflow;
     }
 
-    public void setWorkflowXML(String workflowXML) {
-        this.workflowXML = workflowXML;
+    public void setWorkflow(String workflowXML) {
+        this.workflow = workflowXML;
     }
 
     @JsonProperty
@@ -44,11 +57,11 @@ public class SCAModel extends PanacheMongoEntity implements Serializable {
         this.labels = labels;
     }
 
-    public List<List<List<Float>>> getImages() {
+    public List<List<List<List<Float>>>> getImages() {
         return images;
     }
 
-    public void setImages(List<List<List<Float>>> images) {
+    public void setImages(List<List<List<List<Float>>>> images) {
         this.images = images;
     }
 
@@ -57,13 +70,13 @@ public class SCAModel extends PanacheMongoEntity implements Serializable {
             return images;
         }
 
-        public void setImages(float[][][] images) {
+        public vouserId setImages(float[][][] images) {
             this.images = images;
         }
     */
     @Override
     public String toString() {
-        return "PersistEntity{workflowXML=" + this.workflowXML
+        return "PersistEntity{workflowXML=" + this.workflow
                 + ", labels=" + this.labels
                 //+ ", images=" + Arrays.deepToString(this.images)
                 + "}";

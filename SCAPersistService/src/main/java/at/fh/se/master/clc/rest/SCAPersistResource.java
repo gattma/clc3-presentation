@@ -18,6 +18,7 @@ public class SCAPersistResource {
     private Logger LOG;
 
     @GET
+    @Path("/health")
     @Produces(MediaType.TEXT_PLAIN)
     public String health() {
         LOG.debug("SCAPersistResource.health()");
@@ -26,16 +27,18 @@ public class SCAPersistResource {
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response persist(SCAModel entity) { // TODO user berücksichtigen
+    public Response persist(SCAModel entity) {
         LOG.debug("SCAPersistResource.persist({})", entity);
         entity.persist();
         return Response.ok().build();
     }
 
     @GET
+    @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getAll() { // TODO user berücksichtigen
-        List<SCAModel> res = SCAModel.listAll();
+    public Response getAll(@PathParam("id") String id) {
+        LOG.debug("SCAPersistResource.getAll() with id {}", id);
+        List<SCAModel> res = SCAModel.find("userId", id).list();
         return Response.ok(res).build();
     }
 }
