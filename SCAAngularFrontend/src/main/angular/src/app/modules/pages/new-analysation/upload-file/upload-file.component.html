@@ -1,0 +1,40 @@
+<div [hidden]="!uploadView">
+  <div class="uploadfilecontainer" (click)="fileInput.click()" appDragDropDirective
+       (onFileDropped)="uploadFile($event)">
+    <input hidden type="file" #fileInput (change)="uploadFile($event.target.files)">
+  </div>
+
+  <div class="container aligner" *ngIf="previewUrl">
+    <button mat-icon-button color="warn" (click)="previewUrl = null">
+      <mat-icon>delete</mat-icon>
+    </button>
+    <video class="aligner-item" [src]="previewUrl" controls #videoPlayer>
+      >
+    </video>
+
+    <h5 *ngIf="isUploading" style="margin-top: 20px">{{progressValue}} % upload to server</h5>
+    <mat-progress-bar *ngIf="isUploading" class="aligner-item" color="warn"
+                      mode="determinate" [value]="progressValue"></mat-progress-bar>
+  </div>
+
+
+  <div class="files-list" *ngFor="let file of files; let i= index">
+    <p> {{ file.file.name }} </p>
+
+    <button mat-icon-button color="warn" (click)="deleteAttachment(i)">
+      <mat-icon>delete</mat-icon>
+    </button>
+    <button mat-raised-button color="primary" (click)="preview(file.file)">Preview</button>
+    <button *ngIf="file.processedImage" mat-icon-button color="primary" (click)="toggleView(file.processedImage)">
+      <mat-icon>file_copy</mat-icon>
+    </button>
+    <mat-spinner *ngIf="file.loading" [diameter]="30"></mat-spinner>
+    <button mat-raised-button color="primary" (click)="submit(file.file, i)">Submit</button>
+  </div>
+</div>
+<div *ngIf="!uploadView">
+  <button mat-icon-button color="primary" (click)="toggleView(null)">
+    <mat-icon>keyboard_return</mat-icon>
+  </button>
+  <app-canvas-image [images]="currentFile"></app-canvas-image>
+</div>

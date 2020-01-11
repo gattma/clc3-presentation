@@ -1,0 +1,22 @@
+<app-header></app-header>
+
+<div  class="container">
+  <table class="table table-responsive">
+    <th>
+      <tr>
+        <td>Saved Models</td>
+      </tr>
+    </th>
+    <tbody>
+    <tr *ngFor="let image of images; let i = index" (click)="viewImage(image)" style="cursor: pointer;">
+      <td>Model: {{i}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<div *ngIf="currentFile">
+  <button mat-icon-button color="primary" (click)="viewImage(null)">
+    <mat-icon>close</mat-icon>
+  </button>
+  <app-canvas-image [images]="currentFile"></app-canvas-image>
+</div>
