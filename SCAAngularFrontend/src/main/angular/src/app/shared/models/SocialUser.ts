@@ -6,4 +6,11 @@ export class SocialUser {
   image: string;
   token?: string;
   idToken?: string;
+  firstName: string;
+  lastName: string;
+  authorizationCode: string;
+  authToken: string;
+  facebook: any;
+  linkedIn: any;
+  photoUrl: any;
 }

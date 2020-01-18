@@ -1,0 +1,27 @@
+quarkus:
+    http:
+      cors: true
+    mongodb:
+      database: screenCastDB
+    jaeger:
+      service-name: scapersistservice
+      sampler-type: const
+      sampler-param: 1
+
+
+
+"%dev":
+  quarkus:
+    profile: dev
+    mongodb:
+      connection-string: mongodb://localhost:27017
+
+
+
+"%prod":
+  quarkus:
+    profile: prod
+    mongodb:
+      connection-string: mongodb://localhost:27017
+    jaeger:
+      endpoint: http://jaeger-collector:14268/api/traces

@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpParams} from "@angular/common/http";
-import {environment} from "../../../environments/environment";
+import {environmentLocal} from "../../../environments/environment.local";
 import {Image, ImgWithUser} from "../models/Image";
 import {Configuration} from "../../configuration/configuration";
 import {SocialUser} from "../models/SocialUser";
@@ -9,8 +9,8 @@ import {SocialUser} from "../models/SocialUser";
   providedIn: 'root'
 })
 export class PersistService {
-  host = environment.SCAPersistService.host;
-  port = environment.SCAPersistService.port;
+  host = environmentLocal.SCAPersistService.host;
+  port = environmentLocal.SCAPersistService.port;
 
   user: SocialUser = JSON.parse(localStorage.getItem(Configuration.user.STORAGE));
 

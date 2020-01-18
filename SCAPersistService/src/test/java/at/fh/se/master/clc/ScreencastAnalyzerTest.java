@@ -12,10 +12,10 @@ public class ScreencastAnalyzerTest {
     @Test
     public void testHelloEndpoint() {
         given()
-          .when().get("/hello")
+          .when().get("/model/health")
           .then()
              .statusCode(200)
-             .body(is("hello"));
+             .body(is("OK"));
     }
 
 }

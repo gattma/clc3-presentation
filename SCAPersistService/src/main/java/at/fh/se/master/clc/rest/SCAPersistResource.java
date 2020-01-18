@@ -1,6 +1,8 @@
 package at.fh.se.master.clc.rest;
 
 import at.fh.se.master.clc.domain.SCAModel;
+import io.quarkus.runtime.configuration.ProfileManager;
+import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.eclipse.microprofile.opentracing.Traced;
 import org.slf4j.Logger;
 
@@ -17,6 +19,14 @@ public class SCAPersistResource {
 
     @Inject
     private Logger LOG;
+
+    @GET
+    @Path("/profile")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String profile(){
+        LOG.debug("SCAPersistService.profile()");
+        return ProfileManager.getActiveProfile();
+    }
 
     @GET
     @Path("/health")

@@ -10,9 +10,4 @@ export const Configuration = {
   user: {
     STORAGE: "socialUser"
   },
-
-  SCAAnalyserService: {
-    host: "http://localhost",
-    port: 5000
-  }
 };

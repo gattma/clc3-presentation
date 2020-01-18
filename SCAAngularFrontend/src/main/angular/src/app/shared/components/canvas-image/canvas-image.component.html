@@ -4,7 +4,7 @@
   <mat-grid-list cols="3" rowHeight="270px">
     <mat-grid-tile
       *ngFor="let image of images.images; let i = index">
-      <mat-card class="example-card" class="grid-tile" (click)="changeView(configuration.pages.NEW_ANALYSATION)">
+      <mat-card class="example-card" class="grid-tile">
         <mat-card-header>
           <div mat-card-avatar class="example-header-image"></div>
           <mat-card-title>{{images.labels[i]}}</mat-card-title>

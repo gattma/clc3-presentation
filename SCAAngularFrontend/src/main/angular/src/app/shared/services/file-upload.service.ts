@@ -1,14 +1,14 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {environment} from "../../../environments/environment";
+import {environmentLocal} from "../../../environments/environment.local";
 
 @Injectable({
   providedIn: 'root'
 })
 export class FileUploadService {
 
-  host = environment.SCAAnalyserService.host;
-  port = environment.SCAAnalyserService.port;
+  host = environmentLocal.SCAAnalyserService.host;
+  port = environmentLocal.SCAAnalyserService.port;
 
 
   constructor(private http: HttpClient) {

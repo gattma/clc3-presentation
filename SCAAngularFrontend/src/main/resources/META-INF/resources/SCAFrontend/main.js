@@ -123,7 +123,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\">\n  <button mat-raised-button (click)=\"persist()\">Persist</button>\n  <h2>Images:</h2>\n  <mat-grid-list cols=\"3\" rowHeight=\"270px\">\n    <mat-grid-tile\n      *ngFor=\"let image of images.images; let i = index\">\n      <mat-card class=\"example-card\" class=\"grid-tile\" (click)=\"changeView(configuration.pages.NEW_ANALYSATION)\">\n        <mat-card-header>\n          <div mat-card-avatar class=\"example-header-image\"></div>\n          <mat-card-title>{{images.labels[i]}}</mat-card-title>\n        </mat-card-header>\n        <canvas #canvas [width]=\"image[0]?.length\" [height]=\"image?.length\"></canvas>\n      </mat-card>\n    </mat-grid-tile>\n  </mat-grid-list>\n\n\n  <h2>Workflow</h2>\n\n  <pre lang=\"xml\">{{images.workflow}}</pre>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\">\n  <button mat-raised-button (click)=\"persist()\">Persist</button>\n  <h2>Images:</h2>\n  <mat-grid-list cols=\"3\" rowHeight=\"270px\">\n    <mat-grid-tile\n      *ngFor=\"let image of images.images; let i = index\">\n      <mat-card class=\"example-card\" class=\"grid-tile\">\n        <mat-card-header>\n          <div mat-card-avatar class=\"example-header-image\"></div>\n          <mat-card-title>{{images.labels[i]}}</mat-card-title>\n        </mat-card-header>\n        <canvas #canvas [width]=\"image[0]?.length\" [height]=\"image?.length\"></canvas>\n      </mat-card>\n    </mat-grid-tile>\n  </mat-grid-list>\n\n\n  <h2>Workflow</h2>\n\n  <pre lang=\"xml\">{{images.workflow}}</pre>\n</div>\n");
 
 /***/ }),
 
@@ -629,10 +629,6 @@ var Configuration = {
     user: {
         STORAGE: "socialUser"
     },
-    SCAAnalyserService: {
-        host: "http://localhost",
-        port: 5000
-    }
 };
 
 
@@ -1442,7 +1438,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../environments/environment */ "./src/environments/environment.ts");
+/* harmony import */ var _environments_environment_local__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../environments/environment.local */ "./src/environments/environment.local.ts");
 
 
 
@@ -1450,8 +1446,8 @@ __webpack_require__.r(__webpack_exports__);
 var FileUploadService = /** @class */ (function () {
     function FileUploadService(http) {
         this.http = http;
-        this.host = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].SCAAnalyserService.host;
-        this.port = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].SCAAnalyserService.port;
+        this.host = _environments_environment_local__WEBPACK_IMPORTED_MODULE_3__["environmentLocal"].SCAAnalyserService.host;
+        this.port = _environments_environment_local__WEBPACK_IMPORTED_MODULE_3__["environmentLocal"].SCAAnalyserService.port;
     }
     FileUploadService.prototype.submitAll = function (file) {
         var formData = new FormData();
@@ -1489,7 +1485,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../environments/environment */ "./src/environments/environment.ts");
+/* harmony import */ var _environments_environment_local__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../environments/environment.local */ "./src/environments/environment.local.ts");
 /* harmony import */ var _models_Image__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../models/Image */ "./src/app/shared/models/Image.ts");
 /* harmony import */ var _configuration_configuration__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../configuration/configuration */ "./src/app/configuration/configuration.ts");
 
@@ -1501,8 +1497,8 @@ __webpack_require__.r(__webpack_exports__);
 var PersistService = /** @class */ (function () {
     function PersistService(http) {
         this.http = http;
-        this.host = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].SCAPersistService.host;
-        this.port = _environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].SCAPersistService.port;
+        this.host = _environments_environment_local__WEBPACK_IMPORTED_MODULE_3__["environmentLocal"].SCAPersistService.host;
+        this.port = _environments_environment_local__WEBPACK_IMPORTED_MODULE_3__["environmentLocal"].SCAPersistService.port;
         this.user = JSON.parse(localStorage.getItem(_configuration_configuration__WEBPACK_IMPORTED_MODULE_5__["Configuration"].user.STORAGE));
     }
     PersistService.prototype.persist = function (image) {
@@ -1531,22 +1527,22 @@ var PersistService = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/environments/environment.ts":
-/*!*****************************************!*\
-  !*** ./src/environments/environment.ts ***!
-  \*****************************************/
-/*! exports provided: environment */
+/***/ "./src/environments/environment.local.ts":
+/*!***********************************************!*\
+  !*** ./src/environments/environment.local.ts ***!
+  \***********************************************/
+/*! exports provided: environmentLocal */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "environment", function() { return environment; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "environmentLocal", function() { return environmentLocal; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-var environment = {
+var environmentLocal = {
     production: false,
     SCAAnalyserService: {
         host: "http://localhost",
@@ -1581,20 +1577,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var hammerjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! hammerjs */ "./node_modules/hammerjs/hammer.js");
 /* harmony import */ var hammerjs__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(hammerjs__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/platform-browser-dynamic */ "./node_modules/@angular/platform-browser-dynamic/fesm5/platform-browser-dynamic.js");
-/* harmony import */ var _app_app_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./app/app.module */ "./src/app/app.module.ts");
-/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./environments/environment */ "./src/environments/environment.ts");
+/* harmony import */ var _angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/platform-browser-dynamic */ "./node_modules/@angular/platform-browser-dynamic/fesm5/platform-browser-dynamic.js");
+/* harmony import */ var _app_app_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app/app.module */ "./src/app/app.module.ts");
 
 
 
 
-
-
-if (_environments_environment__WEBPACK_IMPORTED_MODULE_5__["environment"].production) {
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["enableProdMode"])();
-}
-Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_3__["platformBrowserDynamic"])().bootstrapModule(_app_app_module__WEBPACK_IMPORTED_MODULE_4__["AppModule"])
+Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_2__["platformBrowserDynamic"])().bootstrapModule(_app_app_module__WEBPACK_IMPORTED_MODULE_3__["AppModule"])
     .catch(function (err) { return console.error(err); });
 
 
