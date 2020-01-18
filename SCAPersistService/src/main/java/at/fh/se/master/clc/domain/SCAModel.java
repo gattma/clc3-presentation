@@ -11,9 +11,7 @@ import java.util.List;
 public class SCAModel extends PanacheMongoEntity implements Serializable {
 
     private String workflow;
-    // private String[] labels;
     private List<String> labels;
-    // private float[][][] images;
     private List<List<List<List<Float>>>> images;
 
 
@@ -65,15 +63,6 @@ public class SCAModel extends PanacheMongoEntity implements Serializable {
         this.images = images;
     }
 
-    /*
-        public float[][][] getImages() {
-            return images;
-        }
-
-        public vouserId setImages(float[][][] images) {
-            this.images = images;
-        }
-    */
     @Override
     public String toString() {
         return "PersistEntity{workflowXML=" + this.workflow
