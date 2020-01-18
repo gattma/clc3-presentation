@@ -10,17 +10,17 @@ quarkus:
 
 
 
-"%dev":
+"%local":
   quarkus:
-    profile: dev
+    profile: local
     mongodb:
       connection-string: mongodb://localhost:27017
 
 
 
-"%prod":
+"%openshift":
   quarkus:
-    profile: prod
+    profile: openshift
     mongodb:
       connection-string: mongodb://localhost:27017
     jaeger:
