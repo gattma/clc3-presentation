@@ -2,6 +2,7 @@ package at.fh.se.master.clc.rest;
 
 import at.fh.se.master.clc.business.SCAPersistService;
 import at.fh.se.master.clc.domain.SCAModel;
+import at.fh.se.master.clc.domain.Simple;
 import io.quarkus.runtime.configuration.ProfileManager;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.eclipse.microprofile.opentracing.Traced;
@@ -54,5 +55,21 @@ public class SCAPersistResource {
     public Response findAllForUser(@PathParam("id") String id) {
         LOG.debug("SCAPersistResource.getAll({})", id);
         return Response.ok(service.findAllForUser(id)).build();
+    }
+
+    @POST
+    @Path("/dummy")
+    public Response dummyInsert() {
+        LOG.debug("SCAPersistResource.dummyInsert()");
+        new Simple().persist();
+        return Response.ok().build();
+    }
+
+    @GET
+    @Path("/dummy")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response dummyGet() {
+        LOG.debug("SCAPersistResource.dummyGet()");
+        return Response.ok(Simple.findAll()).build();
     }
 }
