@@ -3,7 +3,7 @@ quarkus:
     cors: true
   mongodb:
     database: screenCastDB
-    connection-string: mongodb://http://mongodb-24-centos7-sca-project.apps-crc.testing:27017
+    connection-string: mongodb://mongodb-24-centos7-sca-project.apps-crc.testing:27017
   jaeger:
     service-name: scapersistservice
     sampler-type: const
@@ -16,7 +16,7 @@ quarkus:
   quarkus:
     profile: local
     mongodb:
-      connection-string: mongodb://http://mongodb-24-centos7-sca-project.apps-crc.testing:27017
+      connection-string: mongodb://mongodb-24-centos7-sca-project.apps-crc.testing:27017
 
 
 
@@ -24,6 +24,6 @@ quarkus:
   quarkus:
     profile: openshift
     mongodb:
-      connection-string: mongodb://http://mongodb-24-centos7-sca-project.apps-crc.testing:27017
+      connection-string: mongodb://mongodb-24-centos7-sca-project.apps-crc.testing:27017
     jaeger:
       endpoint: http://jaeger-all-in-one-inmemory-collector-sca-project.apps-crc.testing:14286/api/traces
