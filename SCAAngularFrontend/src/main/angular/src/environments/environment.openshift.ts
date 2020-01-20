@@ -2,7 +2,7 @@ export const environment = {
   production: false,
 
   SCAAnalyserService: {
-    host: "sca-analyze-service",
+    host: "http://sca-analyze-service-sca-project.apps-crc.testing",
     port: 5000
   },
 

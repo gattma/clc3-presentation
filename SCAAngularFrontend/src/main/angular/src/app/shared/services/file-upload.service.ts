@@ -18,7 +18,7 @@ export class FileUploadService {
     const formData = new FormData();
     formData.append('file', file);
 
-    return this.http.post(this.host + ":" + this.port + "/analyze", formData, {
+    return this.http.post(this.host + "/analyze", formData, {
       reportProgress: true,
       observe: 'events'
     })
