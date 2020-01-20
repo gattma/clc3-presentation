@@ -1,0 +1,12 @@
+<workflow>
+    <interaction>
+    <action type="delay">1150.0000000000002</action>
+    <action type="click">ACTION0.png</action>
+    <action type="delay">1000.0</action>
+    <action type="click">ACTION1.png</action>
+    <action type="delay">950.0</action>
+    <action type="click">ACTION2.png</action>
+    <action type="delay">850.0</action>
+    <action type="click">ACTION3.png</action>
+    </interaction>
+</workflow>
