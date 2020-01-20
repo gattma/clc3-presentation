@@ -11,7 +11,8 @@ export const environmentLocal = {
   },
 
   SCAPersistService: {
-    host: "http://localhost",
+    // host: "http://localhost",
+    host: "sca-persist-service",
     port: 8080
   }
 };
