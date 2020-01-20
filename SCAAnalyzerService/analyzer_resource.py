@@ -1,4 +1,4 @@
-import os
+import time
 from app import app
 from flask import request, jsonify
 from werkzeug.utils import secure_filename
@@ -33,6 +33,7 @@ def analyze_video():
 
         resp = jsonify({'workflow': "".join(workflow), 'images': images, 'labels': labels})
         resp.status_code = 200
+        time.sleep(5)
         return resp
     else:
         resp = jsonify({'message': 'Allowed file types are mp4, avi'})
