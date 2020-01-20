@@ -7,7 +7,7 @@ export const environment = {
   },
 
   SCAPersistService: {
-    host: "http://localhost",
+    host: "http://sca-persist-service-sca-project.apps-crc.testing",
     port: 8080
   }
 };

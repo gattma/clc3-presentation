@@ -23,7 +23,7 @@ export class PersistService {
     let imgWithUser: ImgWithUser = new ImgWithUser(image, this.user.id);
 
     console.log(imgWithUser);
-    return this.http.post(this.host + ":" + this.port + "/model", imgWithUser, {
+    return this.http.post(this.host + "/model", imgWithUser, {
 
       reportProgress: true,
       observe: 'events'
@@ -31,6 +31,6 @@ export class PersistService {
   }
 
   getAll() {
-    return this.http.get(this.host + ":" + this.port + "/model/" + this.user.id);
+    return this.http.get(this.host + "/model/" + this.user.id);
   }
 }
