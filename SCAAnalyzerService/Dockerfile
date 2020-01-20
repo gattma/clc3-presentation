@@ -12,6 +12,7 @@ RUN pip install -r requirements.txt
 RUN apt-get update && apt-get install -y libglib2.0-0 libsm6 libxext6 libxrender-dev git
 
 RUN chmod -x analyzer_resource.py
+RUN chmod -R 777 resources
 
 ENTRYPOINT ["python"]
 CMD ["analyzer_resource.py"]
