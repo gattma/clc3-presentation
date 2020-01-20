@@ -2,8 +2,8 @@ quarkus:
   http:
     cors: true
   mongodb:
-    database: todos
-    connection-string: mongodb://todosuser:password@mongodb:27017/todos
+    database: sca
+    connection-string: mongodb://test:test@mongodb-24-centos7:27017/sca
   jaeger:
     service-name: scapersistservice
     sampler-type: const
@@ -16,7 +16,7 @@ quarkus:
   quarkus:
     profile: local
     mongodb:
-      connection-string: mongodb://todosuser:password@mongodb:27017/todos
+      connection-string: mongodb://test:test@mongodb-24-centos7:27017/sca
 
 
 
@@ -24,6 +24,6 @@ quarkus:
   quarkus:
     profile: openshift
     mongodb:
-      connection-string: mongodb://todosuser:password@mongodb:27017/todos
+      connection-string: mongodb://test:test@mongodb-24-centos7:27017/sca
     jaeger:
       endpoint: http://jaeger-all-in-one-inmemory-collector-sca-project.apps-crc.testing:14286/api/traces
