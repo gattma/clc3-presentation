@@ -5,7 +5,7 @@ import os
 
 class VideoAnalyzer:
 
-    def process(self, video_path):
+    def process(self):
         file1 = open("resources/workflow.xml", "r+")
         workflow_xml = file1.readlines()
 

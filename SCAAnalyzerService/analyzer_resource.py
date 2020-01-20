@@ -25,11 +25,11 @@ def analyze_video():
         return resp
     if file and allowed_file(file.filename):
         filename = secure_filename(file.filename)
-        video_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-        file.save(video_path)
+        # video_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+        # file.save(video_path)
 
         analyzer_service = VideoAnalyzer()
-        workflow, images, labels = analyzer_service.process(video_path)
+        workflow, images, labels = analyzer_service.process()
 
         resp = jsonify({'workflow': workflow, 'images': images, 'labels': labels})
         resp.status_code = 200
