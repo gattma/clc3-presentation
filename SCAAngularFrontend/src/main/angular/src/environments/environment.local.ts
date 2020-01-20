@@ -6,7 +6,7 @@ export const environmentLocal = {
   production: false,
 
   SCAAnalyserService: {
-    host: "http://localhost",
+    host: "sca-analyze-service",
     port: 5000
   },
 
